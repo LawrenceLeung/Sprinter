@@ -6,7 +6,7 @@
 #define MOTHERBOARD 3 // ATMEGA168 = 0, SANGUINO = 1, MOTHERBOARD = 2, MEGA/RAMPS = 3, ATMEGA328 = 4, Gen6 = 5, Sanguinololu = 6
 
 //Comment out to disable SD support
-#define SDSUPPORT 1
+//#define SDSUPPORT 1
 
 //Min step delay in microseconds. If you are experiencing missing steps, try to raise the delay microseconds, but be aware this
 // If you enable this, make sure STEP_DELAY_RATIO is disabled.
@@ -77,7 +77,7 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 //#define HEATER_USES_MAX6675
 
 // Select one of these only to define how the bed temp is read.
-#define BED_USES_THERMISTOR
+//#define BED_USES_THERMISTOR
 //#define BED_USES_AD595
 
 // Calibration formulas
@@ -86,11 +86,11 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 // units are in millimeters or whatever length unit you prefer: inches,football-fields,parsecs etc
 
 //Calibration variables
-float x_steps_per_unit = 80.376;
-float y_steps_per_unit = 80.376;
-float z_steps_per_unit = 3200/1.25;
+float x_steps_per_unit = 35;
+float y_steps_per_unit = 35;
+float z_steps_per_unit = 160.0*4;
 float e_steps_per_unit = 16;
-float max_feedrate = 200000; //mmm, acceleration!
+float max_feedrate = 20000; //mmm, acceleration!
 float max_z_feedrate = 120;
 
 //For SAE Prusa mendeel float z_steps_per_unit = should be 3200/1.411 for 5/16-18 rod and 3200/1.058 for 5/16-24
@@ -113,7 +113,7 @@ const bool DISABLE_Z = true;
 const bool DISABLE_E = false;
 
 const bool INVERT_X_DIR = false;
-const bool INVERT_Y_DIR = false;
+const bool INVERT_Y_DIR = true;
 const bool INVERT_Z_DIR = true;
 const bool INVERT_E_DIR = false;
 
