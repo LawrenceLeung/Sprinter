@@ -113,7 +113,7 @@ const bool DISABLE_Z = true;
 const bool DISABLE_E = false;
 
 const bool INVERT_X_DIR = false;
-const bool INVERT_Y_DIR = true;
+const bool INVERT_Y_DIR = false;
 const bool INVERT_Z_DIR = true;
 const bool INVERT_E_DIR = false;
 
