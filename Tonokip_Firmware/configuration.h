@@ -89,8 +89,8 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 float x_steps_per_unit = 35;
 float y_steps_per_unit = 35;
 float z_steps_per_unit = 160.0*4;
-float e_steps_per_unit = 16;
-float max_feedrate = 20000; //mmm, acceleration!
+float e_steps_per_unit = 18;
+float max_feedrate = 50000; //mmm, acceleration!
 float max_z_feedrate = 120;
 
 //For SAE Prusa mendeel float z_steps_per_unit = should be 3200/1.411 for 5/16-18 rod and 3200/1.058 for 5/16-24
@@ -134,8 +134,8 @@ const int Z_HOME_DIR = -1;
 //#include "BedThermistorTable_200k.h"
 
 //Identical thermistors on heater and bed - use this if you have no heated bed or if the thermistors are the same on both:
-#include "ThermistorTable_200k.h"
-//#include "ThermistorTable_100k.h"
+//#include "ThermistorTable_200k.h"
+#include "ThermistorTable_100k.h"
 //#include "ThermistorTable_mendelparts.h"
 #define BNUMTEMPS NUMTEMPS
 #define bedtemptable temptable
@@ -144,7 +144,7 @@ const int Z_HOME_DIR = -1;
 #define ENDSTOPPULLUPS 1
 const bool ENDSTOPS_INVERTING = false;
 const bool min_software_endstops = false; //If true, axis won't move to coordinates less than zero.
-const bool max_software_endstops = true;  //If true, axis won't move to coordinates greater than the defined lengths below.
+const bool max_software_endstops = false;  //If true, axis won't move to coordinates greater than the defined lengths below.
 const int X_MAX_LENGTH = 220;
 const int Y_MAX_LENGTH = 220;
 const int Z_MAX_LENGTH = 100;
