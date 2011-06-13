@@ -152,5 +152,19 @@ const int Z_MAX_LENGTH = 100;
 #define BAUDRATE 115200
 
 
+// debug serial
+#define DEBUG
+#define DEBUGBAUDRATE 115200
+
+#ifdef DEBUG
+#define DEBUGSTART() Serial3.begin(DEBUGBAUDRATE); Serial3.println("start");
+#define DEBUGPRINTLN(x) Serial3.println(x)
+char debug_sprintf_buffer[512];
+#define DEBUGSPRINTF(x,...) sprintf(debug_sprintf_buffer,x,__VA_ARGS__); Serial3.println(debug_sprintf_buffer)
+#else
+#define DEBUGSTART()
+#define DEBUGPRINTLN(x) 
+#define DEBUGSPRINTF(x,y) 
+#endif
 
 #endif
