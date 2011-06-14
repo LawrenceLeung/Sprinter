@@ -272,8 +272,8 @@
 #define E_DIR_PIN          34
 #define E_ENABLE_PIN       30
 
-#define SDPOWER            48
-#define SDSS               53
+#define SDPOWER            -1 //48
+#define SDSS               -1 //53
 #define LED_PIN            13
 #define PS_ON_PIN          -1
 #define KILL_PIN           -1
