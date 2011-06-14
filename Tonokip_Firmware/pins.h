@@ -278,7 +278,7 @@
 #define PS_ON_PIN          -1
 #define KILL_PIN           -1
 
-
+#endif
 
 #ifdef RAMPS_V_1_0 // RAMPS_V_1_0
   #define HEATER_0_PIN     12    // RAMPS 1.0
