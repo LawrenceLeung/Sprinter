@@ -86,11 +86,11 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 // units are in millimeters or whatever length unit you prefer: inches,football-fields,parsecs etc
 
 //Calibration variables
-float x_steps_per_unit = 35;
-float y_steps_per_unit = 35;
+float x_steps_per_unit = 32.86;
+float y_steps_per_unit = 32.8;
 float z_steps_per_unit = 160.0*4;
-float e_steps_per_unit = 18;
-float max_feedrate = 50000; //mmm, acceleration!
+float e_steps_per_unit = 83.08;
+float max_feedrate = 30000; //mmm, acceleration!
 float max_z_feedrate = 120;
 
 //For SAE Prusa mendeel float z_steps_per_unit = should be 3200/1.411 for 5/16-18 rod and 3200/1.058 for 5/16-24
