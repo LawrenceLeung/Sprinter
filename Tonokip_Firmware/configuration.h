@@ -24,7 +24,7 @@
 
 //Acceleration settings
 #ifdef RAMP_ACCELERATION
-float min_units_per_second = 35.0; // the minimum feedrate
+float min_units_per_second = 25.0; // the minimum feedrate
 long max_acceleration_units_per_sq_second = 750; // Max acceleration in mm/s^2 for printing moves
 long max_travel_acceleration_units_per_sq_second = 1500; // Max acceleration in mm/s^2 for travel moves
 #endif
@@ -52,7 +52,7 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 
 //How often should the heater check for new temp readings, in milliseconds
 #define HEATER_CHECK_INTERVAL 50
-#define BED_CHECK_INTERVAL 5000
+#define BED_CHECK_INTERVAL 70
 
 //Experimental temperature smoothing - only uncomment this if your temp readings are noisy
 //#define SMOOTHING 1
@@ -63,13 +63,13 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 //If the temperature has not increased at the end of that period, the target temperature is set to zero. It can be reset with another M104/M109
 //#define WATCHPERIOD 5000 //5 seconds
 //The minimal temperature defines the temperature below which the heater will not be enabled
-//#define MINTEMP 
+#define MINTEMP 205
 
 //Experimental max temp
 //When temperature exceeds max temp, your bot will halt.
 //This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 //You should use MINTEMP for thermistor short/failure protection.
-//#define MAXTEMP 275
+#define MAXTEMP 235
 
 // Select one of these only to define how the nozzle temp is read.
 #define HEATER_USES_THERMISTOR
@@ -77,7 +77,7 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 //#define HEATER_USES_MAX6675
 
 // Select one of these only to define how the bed temp is read.
-//#define BED_USES_THERMISTOR
+#define BED_USES_THERMISTOR
 //#define BED_USES_AD595
 
 // Calibration formulas
@@ -86,11 +86,11 @@ float min_constant_speed_units = 2; // the minimum units of an accelerated move 
 // units are in millimeters or whatever length unit you prefer: inches,football-fields,parsecs etc
 
 //Calibration variables
-float x_steps_per_unit = 32.86;
-float y_steps_per_unit = 32.8;
-float z_steps_per_unit = 160.0*4;
-float e_steps_per_unit = 83.08;
-float max_feedrate = 30000; //mmm, acceleration!
+float x_steps_per_unit = 32.37655;
+float y_steps_per_unit = 32.37655;
+float z_steps_per_unit = 642; // much higher than the theoretical of 566.  Probably have a mechanical issue related to zwobble
+float e_steps_per_unit = 144.31/2;
+float max_feedrate = 15000; //mmm, acceleration!
 float max_z_feedrate = 120;
 
 //For SAE Prusa mendeel float z_steps_per_unit = should be 3200/1.411 for 5/16-18 rod and 3200/1.058 for 5/16-24
@@ -127,7 +127,7 @@ const int Z_HOME_DIR = -1;
 
 //Uncomment for 100k thermistor
 //#include "ThermistorTable_100k.h"
-//#include "BedThermistorTable_100k.h"
+#include "BedThermistorTable_100k.h"
 
 //Uncomment for 200k thermistor
 //#include "ThermistorTable_200k.h"
@@ -135,10 +135,11 @@ const int Z_HOME_DIR = -1;
 
 //Identical thermistors on heater and bed - use this if you have no heated bed or if the thermistors are the same on both:
 //#include "ThermistorTable_200k.h"
-#include "ThermistorTable_100k.h"
+//#include "ThermistorTable_100k.h"
 //#include "ThermistorTable_mendelparts.h"
+#include "ThermistorTable_Ultimachine.h"
 #define BNUMTEMPS NUMTEMPS
-#define bedtemptable temptable
+//#define bedtemptable bedtemptable
 
 //Endstop Settings
 #define ENDSTOPPULLUPS 1
@@ -153,7 +154,7 @@ const int Z_MAX_LENGTH = 100;
 
 
 // debug serial
-#define DEBUG
+//#define DEBUG
 #define DEBUGBAUDRATE 115200
 
 #ifdef DEBUG
@@ -163,7 +164,7 @@ char debug_sprintf_buffer[512];
 #define DEBUGSPRINTF(x,...) sprintf(debug_sprintf_buffer,x,__VA_ARGS__); Serial3.println(debug_sprintf_buffer)
 #else
 #define DEBUGSTART()
-#define DEBUGPRINTLN(x) 
+#define DEBUGPRINTLN(x)   
 #define DEBUGSPRINTF(x,y) 
 #endif
 
