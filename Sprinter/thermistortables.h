@@ -157,6 +157,121 @@ short temptable_4[NUMTEMPS_4][2] = {
 };
 #endif
 
+// EPCOS 100K Thermistor (B57560G1104F)
+// Made with createTemperatureLookup.py (http://svn.reprap.org/trunk/reprap/firmware/Arduino/utilities/createTemperatureLookup.py)
+// ./createTemperatureLookup.py --r0=100000 --t0=25 --r1=0 --r2=4700 --beta=4092 --max-adc=1023
+// r0: 100000
+// t0: 25
+// r1: 0
+// r2: 4700
+// beta: 4092
+// max adc: 1023
+#define NUMTEMPS_5 20
+short temptable_5[NUMTEMPS_5][2] = {
+   {1, 821},
+   {54, 252},
+   {107, 207},
+   {160, 182},
+   {213, 165},
+   {266, 152},
+   {319, 141},
+   {372, 131},
+   {425, 123},
+   {478, 115},
+   {531, 107},
+   {584, 100},
+   {637, 93},
+   {690, 86},
+   {743, 78},
+   {796, 70},
+   {849, 60},
+   {902, 49},
+   {955, 34},
+   {1008, 3}
+};
+
+// HONEYWELL LAF
+
+// Thermistor lookup table for RepRap Temperature Sensor Boards (http://make.rrrf.org/ts)
+// See this page:  
+// http://dev.www.reprap.org/bin/view/Main/Thermistor
+// for details of what goes in this table.
+// Made with createTemperatureLookup.py (http://svn.reprap.org/trunk/reprap/firmware/Arduino/utilities/createTemperatureLookup.py)
+// ./createTemperatureLookup.py --r0=100000 --t0=25 --r1=0 --r2=4700 --beta=4066 --max-adc=1023
+// r0: 100000
+// t0: 25
+// r1: 0
+// r2: 4700
+// beta: 4066
+// max adc: 1023
+
+#define NUMTEMPS_6 61
+const short temptable_6[NUMTEMPS_6][2] = {
+{	23	,	300	},
+{	25	,	295	},
+{	27	,	290	},
+{	28	,	285	},
+{	31	,	280	},
+{	33	,	275	},
+{	35	,	270	},
+{	38	,	265	},
+{	41	,	260	},
+{	44	,	255	},
+{	48	,	250	},
+{	52	,	245	},
+{	56	,	240	},
+{	61	,	235	},
+{	66	,	230	},
+{	71	,	225	},
+{	78	,	220	},
+{	84	,	215	},
+{	92	,	210	},
+{	100	,	205	},
+{	109	,	200	},
+{	120	,	195	},
+{	131	,	190	},
+{	143	,	185	},
+{	156	,	180	},
+{	171	,	175	},
+{	187	,	170	},
+{	205	,	165	},
+{	224	,	160	},
+{	245	,	155	},
+{	268	,	150	},
+{	293	,	145	},
+{	320	,	140	},
+{	348	,	135	},
+{	379	,	130	},
+{	411	,	125	},
+{	445	,	120	},
+{	480	,	115	},
+{	516	,	110	},
+{	553	,	105	},
+{	591	,	100	},
+{	628	,	95	},
+{	665	,	90	},
+{	702	,	85	},
+{	737	,	80	},
+{	770	,	75	},
+{	801	,	70	},
+{	830	,	65	},
+{	857	,	60	},
+{	881	,	55	},
+{	903	,	50	},
+{	922	,	45	},
+{	939	,	40	},
+{	954	,	35	},
+{	966	,	30	},
+{	977	,	25	},
+{	985	,	20	},
+{	993	,	15	},
+{	999	,	10	},
+{	1004	,	5	},
+{	1008	,	0	},
+
+};
+
+
 #if THERMISTORHEATER == 1
 #define NUMTEMPS NUMTEMPS_1
 #define temptable temptable_1
@@ -169,6 +284,12 @@ short temptable_4[NUMTEMPS_4][2] = {
 #elif THERMISTORHEATER == 4
 #define NUMTEMPS NUMTEMPS_4
 #define temptable temptable_4
+#elif THERMISTORHEATER == 5
+#define NUMTEMPS NUMTEMPS_5
+#define temptable temptable_5
+#elif THERMISTORHEATER == 6
+#define NUMTEMPS NUMTEMPS_6
+#define temptable temptable_6
 #elif defined HEATER_USES_THERMISTOR
 #error No heater thermistor table specified
 #endif
@@ -184,6 +305,12 @@ short temptable_4[NUMTEMPS_4][2] = {
 #elif THERMISTORBED == 4
 #define BNUMTEMPS NUMTEMPS_4
 #define bedtemptable temptable_4
+#elif THERMISTORBED == 5
+#define BNUMTEMPS NUMTEMPS_5
+#define bedtemptable temptable_5
+#elif THERMISTORBED == 6
+#define BNUMTEMPS NUMTEMPS_6
+#define bedtemptable temptable_6
 #elif defined BED_USES_THERMISTOR
 #error No bed thermistor table specified
 #endif
