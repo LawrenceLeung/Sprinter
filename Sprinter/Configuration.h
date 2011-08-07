@@ -16,14 +16,12 @@
 // 2 is 200k thermistor
 // 3 is mendel-parts thermistor
 // 4 is 10k thermistor
-// 5 is Ultimachine
-// 6 is honeywell
-#define THERMISTORHEATER 5
-#define THERMISTORBED 6
+#define THERMISTORHEATER 1
+#define THERMISTORBED 1
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
-float axis_steps_per_unit[] = {32.37655, 32.37655, 642,144.31/2}; 
+float axis_steps_per_unit[] = {80, 80, 3200/1.25,700}; 
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //float axis_steps_per_unit[] = {80,80,3200/1.25,1380}; 
 // MakerGear Hybrid Prusa Mendel:
@@ -41,7 +39,7 @@ const bool ENDSTOPS_INVERTING = false; //set to true to invert the logic of the 
 #define BAUDRATE 115200
 
 // Comment out (using // at the start of the line) to disable SD support:
-//#define SDSUPPORT 1
+#define SDSUPPORT 1
 
 
 //// ADVANCED SETTINGS - to tweak parameters
@@ -106,7 +104,7 @@ long max_travel_acceleration_units_per_sq_second[] = {500,500,50,500}; // X, Y, 
 // Machine UUID
 // This may be useful if you have multiple machines and wish to identify them by using the M115 command. 
 // By default we set it to zeros.
-char uuid[] = "00000000-0000-0000-0000-000000000123";
+char uuid[] = "00000000-0000-0000-0000-000000000000";
 
 
 //// AD595 THERMOCOUPLE SUPPORT UNTESTED... USE WITH CAUTION!!!!
@@ -124,7 +122,7 @@ char uuid[] = "00000000-0000-0000-0000-000000000123";
 
 // How often should the heater check for new temp readings, in milliseconds
 #define HEATER_CHECK_INTERVAL 500
-#define BED_CHECK_INTERVAL 2000
+#define BED_CHECK_INTERVAL 5000
 // Comment the following line to enable heat management during acceleration
 #define DISABLE_CHECK_DURING_ACC
 #ifndef DISABLE_CHECK_DURING_ACC
@@ -155,7 +153,7 @@ char uuid[] = "00000000-0000-0000-0000-000000000123";
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define MAXTEMP 250
+#define MAXTEMP 275
 
 // Select one of these only to define how the nozzle temp is read.
 #define HEATER_USES_THERMISTOR
