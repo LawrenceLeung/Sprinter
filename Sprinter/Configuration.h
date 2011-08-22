@@ -23,7 +23,10 @@
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
-float axis_steps_per_unit[] = {32.37655, 32.37655, 642,144.31/2}; 
+float axis_steps_per_unit[] = {32.37655, 32.37655, 567,144.31/2}; 
+
+//For SAE Prusa mendeel float z_steps_per_unit = should be 3200/1.411 for 5/16-18 rod and 3200/1.058 for 5/16-24 (at 16th microstepping)
+
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //float axis_steps_per_unit[] = {80,80,3200/1.25,1380}; 
 
