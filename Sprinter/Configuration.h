@@ -36,7 +36,7 @@ float axis_steps_per_unit[] = {32.37655, 32.37655, 567,144.31/2};
 //// Endstop Settings
 #define ENDSTOPPULLUPS 1 // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
-const bool ENDSTOPS_INVERTING = false; //set to true to invert the logic of the endstops
+const bool ENDSTOPS_INVERTING = true; //set to true to invert the logic of the endstops
 //If your axes are only moving in one direction, make sure the endstops are connected properly.
 //If your axes move in one direction ONLY when the endstops are triggered, set ENDSTOPS_INVERTING to true here
 
